@@ -96,48 +96,48 @@
 
 #define STEP_DELAY 100
 
-extern void UART1_setup();
-extern void UART2_setup();
-extern void OC1_setup();
-extern void OC2_setup();
-extern void OC3_setup();
-extern void T3_setup();
-extern void T2_setup();
-extern void T4_setup();
-extern void I2C1_setup();
-extern void IC7_setup();
+void UART1_setup();
+void UART2_setup();
+void OC1_setup();
+void OC2_setup();
+void OC3_setup();
+void T3_setup();
+void T2_setup();
+void T4_setup();
+void I2C1_setup();
+void IC7_setup();
 
 void InitApp(void);         /* I/O and Peripheral Initialization */
 #define CALIB_MID 0
 #define CALIB_MAX 48
 #define CALIB_MIN 96
 
-extern void I2C1WaitForIdle( void );
-extern void I2C1Start();
-extern void I2C1Restart();
-extern void I2C1Stop();
-extern char I2C1Read( char pAck );
-extern int I2C1Write( char pData );
-extern void EEPROMWriteChar( int pAddr, char pData );
-extern char EEPROMReadChar( int pAddr );
-extern void EEPROMWritePage32( int pAddr, char *pData );
+void I2C1WaitForIdle( void );
+void I2C1Start();
+void I2C1Restart();
+void I2C1Stop();
+char I2C1Read( char pAck );
+int I2C1Write( char pData );
+void EEPROMWriteChar( int pAddr, char pData );
+char EEPROMReadChar( int pAddr );
+void EEPROMWritePage32( int pAddr, char *pData );
 void LoadMid(int *midData);
-extern void DelayUs( int pDelay );
+
 void stepForward(int stepCount);
 void stepBackward(int stepCount);
 void stepLeft(int stepCount);
 void stepRight(int stepCount);
 void turnLeft(int stepCount);
 void turnRight(int stepCount);
-volatile int PWM_Bank[SERVO_COUNT], PWM_Pointer;
-int PWM_MidPos[SERVO_COUNT], ServoCollapsed[SERVO_COUNT];
-int servoValue, servoChannel, x, needDecode;
-int delayTick;
 
 void SendByte(unsigned char port, const char byte);
 void WriteString(const char *string, unsigned char port);
 
-
-volatile char rxBuff[BUFF_SIZE], rxTemp[BUFF_SIZE],debugchar;
-unsigned char rxBuffp;
-volatile unsigned int Params[PARAM_COUNT];
+extern void DelayUs( int pDelay );
+extern volatile int PWM_Bank[], PWM_Pointer;
+extern int PWM_MidPos[], ServoCollapsed[];
+extern int servoValue, servoChannel, x, needDecode;
+extern int delayTick;
+extern volatile char rxBuff[], rxTemp[],debugchar;
+extern unsigned char rxBuffp;
+extern volatile unsigned int Params[];

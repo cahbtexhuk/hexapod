@@ -22,7 +22,13 @@
 /******************************************************************************/
 
 /* <Initialize variables in user.h and insert code for user algorithms.> */
-
+volatile int PWM_Bank[SERVO_COUNT], PWM_Pointer;
+int PWM_MidPos[SERVO_COUNT], ServoCollapsed[SERVO_COUNT];
+int servoValue, servoChannel, x, needDecode;
+int delayTick;
+volatile char rxBuff[BUFF_SIZE], rxTemp[BUFF_SIZE],debugchar;
+unsigned char rxBuffp;
+volatile unsigned int Params[PARAM_COUNT];
 void InitApp(void)
 {
     uint8_t x=0;
@@ -64,6 +70,22 @@ void InitApp(void)
     I2C1_setup();
     T4_setup();
 }
+
+inline void UpdateOC1(unsigned int value)
+{
+    OC1RS = value;
+}
+
+inline void UpdateOC2(unsigned int value)
+{
+    OC2RS = value;
+}
+
+inline void UpdateOC3(unsigned int value)
+{
+    OC3RS = value;
+}
+
 void SwitchBank()
 {
     if (PWM_Pointer==7)
@@ -91,20 +113,6 @@ void SwitchBank()
         MUX_A2 = 0;
     START_T3;
 }
-inline void UpdateOC1(unsigned int value)
-{
-    OC1RS = value;
-}
-
-inline void UpdateOC2(unsigned int value)
-{
-    OC2RS = value;
-}
-
-inline void UpdateOC3(unsigned int value)
-{
-    OC3RS = value;
-}
 void Decode (char* str, unsigned int* params)
 {
     unsigned int i, cursor, paramNum;
@@ -131,7 +139,7 @@ void ServoShutdown()
 {
     WriteString("Servo Shutdown\r\n", 1);
 }
-void LoadCalData(int *bank)
+void LoadCalData(volatile int *bank)
 {
     int x, mAddr;
     char temp;
