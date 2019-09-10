@@ -15,9 +15,11 @@
 
 #include <stdint.h>        /* Includes uint16_t definition   */
 #include <stdbool.h>       /* Includes true/false definition */
+#include <string.h>
 
 #include "user.h"
-#include <string.h>
+#include "comms/protocol.h"
+#include "mechanical/servos.h"
 /******************************************************************************/
 /* Interrupt Vector Options                                                   */
 /******************************************************************************/

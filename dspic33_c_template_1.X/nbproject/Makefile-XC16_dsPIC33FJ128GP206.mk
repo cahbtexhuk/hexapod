@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=configuration_bits.c interrupts.c main.c system.c traps.c user.c
+SOURCEFILES_QUOTED_IF_SPACED=configuration_bits.c interrupts.c main.c system.c traps.c user.c mechanical/oc.c mechanical/servos.c comms/protocol.c comms/serial.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/user.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/interrupts.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/traps.o.d ${OBJECTDIR}/user.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/user.o ${OBJECTDIR}/mechanical/oc.o ${OBJECTDIR}/mechanical/servos.o ${OBJECTDIR}/comms/protocol.o ${OBJECTDIR}/comms/serial.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/interrupts.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/traps.o.d ${OBJECTDIR}/user.o.d ${OBJECTDIR}/mechanical/oc.o.d ${OBJECTDIR}/mechanical/servos.o.d ${OBJECTDIR}/comms/protocol.o.d ${OBJECTDIR}/comms/serial.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/user.o
+OBJECTFILES=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/user.o ${OBJECTDIR}/mechanical/oc.o ${OBJECTDIR}/mechanical/servos.o ${OBJECTDIR}/comms/protocol.o ${OBJECTDIR}/comms/serial.o
 
 # Source Files
-SOURCEFILES=configuration_bits.c interrupts.c main.c system.c traps.c user.c
+SOURCEFILES=configuration_bits.c interrupts.c main.c system.c traps.c user.c mechanical/oc.c mechanical/servos.c comms/protocol.c comms/serial.c
 
 
 
@@ -137,6 +137,34 @@ ${OBJECTDIR}/user.o: user.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  user.c  -o ${OBJECTDIR}/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/user.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -DXPRJ_XC16_dsPIC33FJ128GP206=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/user.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/mechanical/oc.o: mechanical/oc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mechanical" 
+	@${RM} ${OBJECTDIR}/mechanical/oc.o.d 
+	@${RM} ${OBJECTDIR}/mechanical/oc.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  mechanical/oc.c  -o ${OBJECTDIR}/mechanical/oc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/mechanical/oc.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -DXPRJ_XC16_dsPIC33FJ128GP206=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/mechanical/oc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/mechanical/servos.o: mechanical/servos.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mechanical" 
+	@${RM} ${OBJECTDIR}/mechanical/servos.o.d 
+	@${RM} ${OBJECTDIR}/mechanical/servos.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  mechanical/servos.c  -o ${OBJECTDIR}/mechanical/servos.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/mechanical/servos.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -DXPRJ_XC16_dsPIC33FJ128GP206=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/mechanical/servos.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/comms/protocol.o: comms/protocol.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/comms" 
+	@${RM} ${OBJECTDIR}/comms/protocol.o.d 
+	@${RM} ${OBJECTDIR}/comms/protocol.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  comms/protocol.c  -o ${OBJECTDIR}/comms/protocol.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/comms/protocol.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -DXPRJ_XC16_dsPIC33FJ128GP206=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/comms/protocol.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/comms/serial.o: comms/serial.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/comms" 
+	@${RM} ${OBJECTDIR}/comms/serial.o.d 
+	@${RM} ${OBJECTDIR}/comms/serial.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  comms/serial.c  -o ${OBJECTDIR}/comms/serial.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/comms/serial.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PICKIT2=1    -omf=elf -DXPRJ_XC16_dsPIC33FJ128GP206=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/comms/serial.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/configuration_bits.o: configuration_bits.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -179,6 +207,34 @@ ${OBJECTDIR}/user.o: user.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/user.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  user.c  -o ${OBJECTDIR}/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/user.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC33FJ128GP206=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
 	@${FIXDEPS} "${OBJECTDIR}/user.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/mechanical/oc.o: mechanical/oc.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mechanical" 
+	@${RM} ${OBJECTDIR}/mechanical/oc.o.d 
+	@${RM} ${OBJECTDIR}/mechanical/oc.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  mechanical/oc.c  -o ${OBJECTDIR}/mechanical/oc.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/mechanical/oc.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC33FJ128GP206=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/mechanical/oc.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/mechanical/servos.o: mechanical/servos.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/mechanical" 
+	@${RM} ${OBJECTDIR}/mechanical/servos.o.d 
+	@${RM} ${OBJECTDIR}/mechanical/servos.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  mechanical/servos.c  -o ${OBJECTDIR}/mechanical/servos.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/mechanical/servos.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC33FJ128GP206=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/mechanical/servos.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/comms/protocol.o: comms/protocol.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/comms" 
+	@${RM} ${OBJECTDIR}/comms/protocol.o.d 
+	@${RM} ${OBJECTDIR}/comms/protocol.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  comms/protocol.c  -o ${OBJECTDIR}/comms/protocol.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/comms/protocol.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC33FJ128GP206=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/comms/protocol.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/comms/serial.o: comms/serial.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/comms" 
+	@${RM} ${OBJECTDIR}/comms/serial.o.d 
+	@${RM} ${OBJECTDIR}/comms/serial.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  comms/serial.c  -o ${OBJECTDIR}/comms/serial.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/comms/serial.o.d"        -g -omf=elf -DXPRJ_XC16_dsPIC33FJ128GP206=$(CND_CONF)  -legacy-libc  $(COMPARISON_BUILD)  -O0 -msmart-io=1 -Wall -msfr-warn=off  
+	@${FIXDEPS} "${OBJECTDIR}/comms/serial.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 
