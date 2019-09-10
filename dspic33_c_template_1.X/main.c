@@ -49,7 +49,6 @@ int16_t main(void)
 // Fosc= Fin*M/(N1*N2), Fcy=Fosc/2
 // Fosc= 8M*32/(2*4)=32Mhz for 8M input clock
 
-    unsigned int x=0;
     LED1++;
     delayUS(2000);    
 
