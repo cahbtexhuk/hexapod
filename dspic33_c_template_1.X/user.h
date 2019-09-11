@@ -3,6 +3,7 @@
 /******************************************************************************/
 
 /* TODO Application specific user parameters used in user.c may go here */
+#include <stdint.h>
 #include "comms/protocol.h"
 #include "mechanical/servos.h"
 /******************************************************************************/
@@ -98,10 +99,10 @@ void turnRight(int stepCount);
 
 
 extern void DelayUs( int pDelay );
-
+extern uint32_t min_time_ms();
 extern int PWM_MidPos[], ServoCollapsed[];
 extern int servoValue, servoChannel, x;
-extern int delayTick;
+extern unsigned int delayTick, millis;
 extern volatile char rxBuff[], rxTemp[],debugchar;
 extern unsigned char rxBuffp;
 extern volatile unsigned int Params[];

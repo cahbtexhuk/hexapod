@@ -16,6 +16,8 @@
 #include <stdint.h>          /* For uint16_t definition                       */
 #include <stdbool.h>         /* For true/false definition                     */
 #include "user.h"            /* variables/params used by user.c               */
+#include "comms/protocol.h"
+#include "comms/min.h"
 
 /******************************************************************************/
 /* User Functions                                                             */
@@ -23,7 +25,8 @@
 
 /* <Initialize variables in user.h and insert code for user algorithms.> */
 
-int delayTick;
+unsigned int delayTick, millis;
+struct min_context uart1;
 
 volatile unsigned int Params[PARAM_COUNT];
 void InitApp(void)
@@ -66,24 +69,9 @@ void InitApp(void)
     T2_setup();
     I2C1_setup();
     T4_setup();
+    //void min_init_context(struct min_context *self, uint8_t port);
+    min_init_context(&uart1,1);
 }
-
-inline void UpdateOC1(unsigned int value)
-{
-    OC1RS = value;
-}
-
-inline void UpdateOC2(unsigned int value)
-{
-    OC2RS = value;
-}
-
-inline void UpdateOC3(unsigned int value)
-{
-    OC3RS = value;
-}
-
-
 void Decode (char* str, unsigned int* params)
 {
     unsigned int i, cursor, paramNum;
@@ -424,4 +412,9 @@ void stepLeft(int stepCount)
 void stepRight(int stepCount)
 {
     asm("nop");//debug
+}
+
+uint32_t min_time_ms()
+{
+    return delayTick;
 }

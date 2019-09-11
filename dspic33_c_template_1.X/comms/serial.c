@@ -188,3 +188,12 @@ void LoadMid(int *midData)
 {
 
 }
+
+void min_tx_start(uint8_t port)
+{
+    return;
+}
+void min_tx_finished(uint8_t port)
+{
+    return;
+}

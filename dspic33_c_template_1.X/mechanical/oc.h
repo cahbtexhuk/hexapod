@@ -91,6 +91,11 @@ extern volatile int PWM_Bank[], PWM_Pointer;
 extern int PWM_MidPos[], ServoCollapsed[];
 extern int servoValue, servoChannel, x;    
 void SwitchBank();
+
+void UpdateOC1(unsigned int value);
+void UpdateOC2(unsigned int value);
+void UpdateOC3(unsigned int value);
+
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */

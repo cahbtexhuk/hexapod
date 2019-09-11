@@ -95,6 +95,9 @@ void LoadMid(int *midData);
 void SendByte(unsigned char port, const char byte);
 void WriteString(const char *string, unsigned char port);
 extern int needDecode;
+
+extern void min_tx_start(uint8_t port);
+extern void min_tx_finished(uint8_t port);
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */

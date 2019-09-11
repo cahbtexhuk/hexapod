@@ -73,6 +73,9 @@ extern "C" {
 void LoadCalData(volatile int *bank);
 void WriteCalData();
 
+extern void min_tx_byte(uint8_t port, uint8_t byte);
+extern uint16_t min_tx_space(uint8_t port);
+extern void min_application_handler(uint8_t min_id, uint8_t *min_payload, uint8_t len_payload, uint8_t port);
 #ifdef	__cplusplus
 }
 #endif /* __cplusplus */

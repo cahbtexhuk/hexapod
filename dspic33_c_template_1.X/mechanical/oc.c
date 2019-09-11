@@ -136,3 +136,18 @@ void SwitchBank()
         MUX_A2 = 0;
     START_T3;
 }
+
+void UpdateOC1(unsigned int value)
+{
+    OC1RS = value;
+}
+
+void UpdateOC2(unsigned int value)
+{
+    OC2RS = value;
+}
+
+void UpdateOC3(unsigned int value)
+{
+    OC3RS = value;
+}

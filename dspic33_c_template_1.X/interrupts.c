@@ -172,4 +172,5 @@ void __attribute__((__interrupt__, no_auto_psv)) _T4Interrupt(void)
 {
     IFS1bits.T4IF = 0; // Clear Timer4 Interrupt Flag
     delayTick++;
+    millis++;
 }
