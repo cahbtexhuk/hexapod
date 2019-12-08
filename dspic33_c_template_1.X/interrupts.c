@@ -20,6 +20,8 @@
 #include "user.h"
 #include "comms/protocol.h"
 #include "mechanical/servos.h"
+#include "comms/min.h"
+
 /******************************************************************************/
 /* Interrupt Vector Options                                                   */
 /******************************************************************************/
@@ -134,29 +136,37 @@
 
 void __attribute__((__interrupt__, no_auto_psv)) _U1RXInterrupt(void)
 {
+    uint8_t temp;
     IFS0bits.U1RXIF = 0; // clear TX interrupt flag
-    if(rxBuffp==BUFF_SIZE-1)
-    {
-        rxBuffp=0;
-    }
-    rxBuff[rxBuffp]=U1RXREG;
-    rxBuff[rxBuffp+1]=0;
-    if(rxBuff[rxBuffp]=='\r')
-    {
-        strcpy(rxTemp,rxBuff);
-        rxBuffp=0;
-        rxBuff[rxBuffp]=0;
-        needDecode=1;
-    }
-    else
-    {
-        rxBuffp++;
-    }
+//    if(rxBuffp==BUFF_SIZE-1)
+//    {
+//        rxBuffp=0;
+//    }
+//    rxBuff[rxBuffp]=U1RXREG;
+//    rxBuff[rxBuffp+1]=0;
+//    if(rxBuff[rxBuffp]==0x55)
+//    {
+//        strcpy(rxTemp,rxBuff);
+//// void min_poll(struct min_context *self, uint8_t *buf, uint32_t buf_len)
+//        uint32_t len = rxBuffp;
+//        minDecode(rxBuff,len);
+//        rxBuffp=0;
+//        rxBuff[rxBuffp]=0;       
+//        
+//    }
+//    else
+//    {
+//        rxBuffp++;
+//    }
+    rxBuff[0]=U1RXREG;
+    
+    min_poll(&uart1,rxBuff,1);
 }
 
 void __attribute__((__interrupt__, no_auto_psv)) _U2RXInterrupt(void)
 {
     IFS1bits.U2RXIF = 0; // clear TX interrupt flag
+    SendByte(2,U2RXREG);
 
 }
 void __attribute__((__interrupt__, no_auto_psv)) _T3Interrupt(void)

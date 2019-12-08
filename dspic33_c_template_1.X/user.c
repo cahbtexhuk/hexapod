@@ -72,27 +72,29 @@ void InitApp(void)
     //void min_init_context(struct min_context *self, uint8_t port);
     min_init_context(&uart1,1);
 }
-void Decode (char* str, unsigned int* params)
+void minDecode (uint8_t *str, uint32_t params)
 {
-    unsigned int i, cursor, paramNum;
-    paramNum=0;
-    cursor=0;
-    i=0;
-    while(str[i]!='\r')
-    {
-        params[paramNum] = 0;
-        while((str[i]!=','))
-            {
-            params[paramNum] = params[paramNum] * 10 + (str[i] - '0');
-            i++;
-            if(str[i]=='\r')
-                {
-                    return;
-                }
-            }
-       paramNum++;
-       i++;
-    }
+//    unsigned int i, cursor, paramNum;
+//    paramNum=0;
+//    cursor=0;
+//    i=0;
+//    while(str[i]!='\r')
+//    {
+//        params[paramNum] = 0;
+//        while((str[i]!=','))
+//            {
+//            params[paramNum] = params[paramNum] * 10 + (str[i] - '0');
+//            i++;
+//            if(str[i]=='\r')
+//                {
+//                    return;
+//                }
+//            }
+//       paramNum++;
+//       i++;
+//    }
+    //void min_poll(struct min_context *self, uint8_t *buf, uint32_t buf_len)
+    min_poll(&uart1,str,params);
 }
 void ServoShutdown()
 {

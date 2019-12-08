@@ -82,6 +82,7 @@ void __attribute__((interrupt,no_auto_psv)) _OscillatorFail(void)
 void __attribute__((interrupt,no_auto_psv)) _AddressError(void)
 {
         INTCON1bits.ADDRERR = 0;        /* Clear the trap flag */
+        asm ("RESET");
         while (1);
 }
 void __attribute__((interrupt,no_auto_psv)) _StackError(void)

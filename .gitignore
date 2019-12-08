@@ -72,3 +72,5 @@ funclist
 nbproject/Makefile-*
 disassembly/
 *.map
+**/__pycache__
+**/.idea

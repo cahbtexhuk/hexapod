@@ -38,7 +38,7 @@
 // TODO Insert C++ class definitions if appropriate
 
 // TODO Insert declarations
-#define BUFF_SIZE 128
+#define BUFF_SIZE 16
 #define PARAM_COUNT 3
 #define PARAM_SIZE 4
 

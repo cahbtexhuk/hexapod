@@ -73,4 +73,6 @@ void min_application_handler(uint8_t min_id, uint8_t *min_payload, uint8_t len_p
 //  min_send_frame(&min_ctx, min_id, min_payload, len_payload);
     
     // DO SHIT HERE
+    asm("nop");
+    return;
 }

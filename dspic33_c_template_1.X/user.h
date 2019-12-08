@@ -106,3 +106,4 @@ extern unsigned int delayTick, millis;
 extern volatile char rxBuff[], rxTemp[],debugchar;
 extern unsigned char rxBuffp;
 extern volatile unsigned int Params[];
+extern struct min_context uart1;

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calibration</title>
+    <script
+        src="https://code.jquery.com/jquery-2.2.4.min.js"
+        integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+        crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd" crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <a href="/">Back to main</a>
+    </div>
+    <form action="/calibration" method="post" id="servos">
+        {% for i in servos %}
+        <div class="row">
+            <div class="col-md-1">
+                Servo number {{ loop.index }}
+            </div>
+            <div class="col-md-7">
+                <input type="range" min="1000" max="2000" value="{{ i or '1500' }}" class="range" name="servo{{ i }}" onchange="updateValue()">
+            </div>
+            <div class="col-md-4">
+                <div id="servo{{ i }}val">{{ i or '1500' }}</div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <div class="row">
+            <div class="col-md-1">
+                <input type="submit" value="Save">
+            </div>
+        </div>
+    </form>
+</div>
+<script>
+        function updateValue() {
+        console.log(event);
+
+            var servoId = event.target.name;
+            var servoNum = servoId.replace(/servo/g,'');
+            document.getElementById('servo'+servoNum+'val').innerHTML = event.target.value
+        }
+
+    </script>
+</body>
+</html>
